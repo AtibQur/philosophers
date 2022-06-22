@@ -1,29 +1,45 @@
-NAME		= philo
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/06/22 10:34:59 by hqureshi          #+#    #+#              #
+#    Updated: 2022/06/22 14:51:49 by hqureshi         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-# -g -fsanitize=address
+NAME		= philo
 
 CC			= gcc
 CFLAGS		= -g -Wall -Werror -Wextra -fsanitize=address
 
 all:		$(NAME)
 
-SRCS		= main.c \
-			# src/philosophers.c \
+SRCS		= sources/main.c \
+			sources/lib_utils.c \
+			sources/init_philos.c \
+			sources/philosophers.c \
+			sources/check_errors.c \
+			sources/philosophers_utils.c \
+			
 
-INCS		= ./inc/philosophers.h
+INCS		= ./includes/philosophers.h
 
 OBJS		= $(SRCS:.c=.o)
 
 $(NAME):		$(SRCS)
-	$(CC) $(CFLAGS) $(SRCS) -o $(NAME)
-	@echo "\033[0;32mDone!\n\033[0m"
+	@$(CC) $(CFLAGS) $(SRCS) -o $(NAME)
+	@echo "\033[0;32mPhilosophers are ready!\033[0m"
 
 clean:
-		rm -f $(OBJS)
+		@rm -f $(OBJS)
+		@echo "\033[0;32mCleaned!\033[0m"
 
 fclean:
-		rm -f $(NAME)
-		@echo "\033[0;32mClean!\n\033[0m"
+		@rm -f $(NAME)
+		@echo "\033[0;32mCleaned!\033[0m"
 
 re:			fclean all
 
