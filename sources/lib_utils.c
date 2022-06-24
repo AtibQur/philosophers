@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 14:46:49 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/06/22 15:11:21 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/06/24 11:34:07 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,28 +53,4 @@ int	ft_atoi(const char *str)
 			return (-1);
 	}
 	return (result * min);
-}
-
-void	*ft_calloc(size_t count, size_t size)
-{
-	void	*ptr;
-
-	ptr = (void *)malloc(count * size * sizeof(char));
-	if (!ptr)
-		return (0);
-	ft_bzero(ptr, count * size);
-	return (ptr);
-}
-
-void	*ft_bzero(void *s, size_t n)
-{
-	size_t	i;
-
-	i = 0;
-	while (i < n)
-	{
-		((char *)s)[i] = '\0';
-		i++;
-	}
-	return (s);
 }
