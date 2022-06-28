@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 13:58:32 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/06/28 13:31:41 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/06/28 16:52:23 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,10 @@
 # include <stdlib.h>
 # include <stdbool.h>
 # include <pthread.h>
+# include <sys/time.h>
 
 typedef struct s_philos {
+	pthread_t		tid;
 	int				philo_id;
 	int				numbers_of_time_eaten;
 	int				left_fork;
@@ -28,12 +30,15 @@ typedef struct s_philos {
 }	t_philos;
 
 typedef struct s_data {
-	int				number_of_philosophers;
-	int				time_to_die;
-	int				time_to_eat;
-	int				time_to_sleep;
-	int				number_of_times_to_eat;
-	t_philos		*philos;
+	int					number_of_philosophers;
+	int					time_to_die;
+	int					time_to_eat;
+	int					time_to_sleep;
+	int					number_of_times_to_eat;
+	bool				finished;
+	pthread_mutex_t		*threads;
+	pthread_mutex_t		state;
+	t_philos			*philos;
 }	t_data;
 
 int		main(int argc, char **argv);

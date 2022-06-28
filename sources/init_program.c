@@ -6,11 +6,31 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 14:28:46 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/06/28 13:39:16 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/06/28 16:48:33 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philosophers.h"
+
+int	init_mutexes(t_data *data)
+{
+	int	i;
+
+	i = 0;
+	data->threads = (pthread_mutex_t *)malloc(sizeof(*(data->philos)) \
+	* data->number_of_philosophers);
+	if (!data->threads)
+		return (0);
+	while (i < data->number_of_philosophers)
+	{
+		if (pthread_mutex_init(&data->threads[i], NULL) != 0)
+			return (0);
+		i++;
+	}
+	if (pthread_mutex_init(&data->state, NULL) != 0)
+		return (0);
+	return (1);
+}
 
 int	init_philos(t_data *data)
 {
@@ -38,6 +58,7 @@ int	init_program(t_data *data, char **argv)
 {
 	if (!check_input_errors(argv))
 		return (0);
+	data->finished = false;
 	data->number_of_philosophers = ft_atoi(argv[1]);
 	data->time_to_die = ft_atoi(argv[2]);
 	data->time_to_eat = ft_atoi(argv[3]);
@@ -51,6 +72,10 @@ int	init_program(t_data *data, char **argv)
 	else
 		data->number_of_times_to_eat = -1;
 	init_philos(data);
+	if (!init_mutexes(data))
+		return (0);
+	if (!philosophers(data))
+		return (0);
 	return (1);
 }
 
