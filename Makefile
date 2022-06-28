@@ -6,7 +6,7 @@
 #    By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/22 10:34:59 by hqureshi          #+#    #+#              #
-#    Updated: 2022/06/22 14:51:49 by hqureshi         ###   ########.fr        #
+#    Updated: 2022/06/28 12:07:43 by hqureshi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,11 +18,10 @@ CFLAGS		= -g -Wall -Werror -Wextra -fsanitize=address
 all:		$(NAME)
 
 SRCS		= sources/main.c \
-			sources/lib_utils.c \
-			sources/init_philos.c \
-			sources/philosophers.c \
-			sources/check_errors.c \
 			sources/philosophers_utils.c \
+			sources/init_program.c \
+			sources/check_errors.c \
+			sources/ft_atoi.c \
 			
 
 INCS		= ./includes/philosophers.h
