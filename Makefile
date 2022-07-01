@@ -6,7 +6,7 @@
 #    By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/22 10:34:59 by hqureshi          #+#    #+#              #
-#    Updated: 2022/06/28 16:59:28 by hqureshi         ###   ########.fr        #
+#    Updated: 2022/06/29 10:46:14 by hqureshi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SRCS		= sources/main.c \
 			sources/init_program.c \
 			sources/check_errors.c \
 			sources/ft_atoi.c \
+			sources/philosophers.c \
 			
 INCS		= ./includes/philosophers.h
 

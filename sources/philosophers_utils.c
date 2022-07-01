@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 12:48:26 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/06/28 12:30:51 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/07/01 10:01:16 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,17 @@ int	write_instructions(int error_message)
 		write(2, "Error. Choose a correct amount for the philosophers to eat\n", \
 		60);
 	return (1);
+}
+
+int	check_status(t_data *data)
+{
+	int	ret;
+
+	pthread_mutex_lock(&data->status);
+	if (data->finished == true)
+		ret = 1;
+	else
+		ret = 0;
+	pthread_mutex_unlock(&data->status);
+	return (ret);
 }
