@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 12:48:26 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/07/01 10:01:16 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/07/20 12:30:53 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,23 @@ int	check_status(t_data *data)
 		ret = 0;
 	pthread_mutex_unlock(&data->status);
 	return (ret);
+}
+
+void	timestamp_usleep(long time)
+{
+	long	current_time;
+
+	current_time = timestamp();
+	while (timestamp() < current_time + time)
+		usleep(time);
+}
+
+long	timestamp(void)
+{
+	struct timeval	tv;
+	long			milliseconds;
+
+	gettimeofday(&tv, NULL);
+	milliseconds = (tv.tv_sec) * 1000 + (tv.tv_usec) / 1000;
+	return (milliseconds);
 }

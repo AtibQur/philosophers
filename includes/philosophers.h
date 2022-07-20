@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 13:58:32 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/07/01 09:43:59 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/07/20 11:49:01 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,7 @@ int		init_philos(t_data *data);
 int		philosophers(t_data *data);
 void	*start_game(void *arg);
 int		check_status(t_data *data);
+void	timestamp_usleep(long time);
+long	timestamp(void);
 
 #endif

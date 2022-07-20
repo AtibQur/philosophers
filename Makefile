@@ -6,14 +6,14 @@
 #    By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/22 10:34:59 by hqureshi          #+#    #+#              #
-#    Updated: 2022/06/29 10:46:14 by hqureshi         ###   ########.fr        #
+#    Updated: 2022/07/19 14:50:43 by hqureshi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= philo
 
 CC			= gcc
-CFLAGS		= -g -Wall -Werror -Wextra -fsanitize=address
+CFLAGS		= -Wall -Werror -Wextra -fsanitize=address
 
 all:		$(NAME)
 
