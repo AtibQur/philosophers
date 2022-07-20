@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 13:58:32 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/07/20 11:49:01 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/07/20 12:46:00 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct s_data {
 	int					time_to_sleep;
 	int					number_of_times_to_eat;
 	bool				finished;
+	long				start_time;
 	pthread_mutex_t		*forks;
 	pthread_mutex_t		state;
 	pthread_mutex_t		status;

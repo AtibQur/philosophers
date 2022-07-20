@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 14:05:28 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/07/20 12:17:33 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/07/20 13:30:45 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 void	action_info(t_data *data, int philo_id, char *string)
 {
 	pthread_mutex_lock(&data->state);
-	printf("%ld ", timestamp());
-	printf("Philo %d %s\n", philo_id + 1, string);
+	printf("%ld\t", timestamp() - data->start_time);
+	printf("Philosopher [%d] %s\n", philo_id + 1, string);
 	pthread_mutex_unlock(&data->state);
 }
 
@@ -26,10 +26,10 @@ void	eating(t_philos *philos)
 
 	data = philos->data;
 	pthread_mutex_lock(&philos->data->forks[philos->left_fork]);
-	action_info(data, philos->philo_id, "grabbed a fork");
+	action_info(data, philos->philo_id, "grabbed a fork.");
 	pthread_mutex_lock(&data->forks[philos->right_fork]);
-	action_info(data, philos->philo_id, "grabbed a fork");
-	action_info(data, philos->philo_id, "is eating");
+	action_info(data, philos->philo_id, "grabbed a fork.");
+	action_info(data, philos->philo_id, "is eating.");
 	timestamp_usleep(data->time_to_eat);
 	philos->numbers_of_time_eaten--;
 	pthread_mutex_unlock(&data->forks[philos->left_fork]);
@@ -47,11 +47,11 @@ void	*start_game(void *arg)
 		timestamp_usleep(data->number_of_times_to_eat);
 	while (check_status(data) != 1 && philos->numbers_of_time_eaten != 0)
 	{
-		printf("%d\n", philos->numbers_of_time_eaten);
+		// printf("%d\n", philos->numbers_of_time_eaten);
 		eating(philos);
-		action_info(data, philos->philo_id, "is sleeping");
+		action_info(data, philos->philo_id, "is sleeping.");
 		timestamp_usleep(data->time_to_sleep);
-		action_info(data, philos->philo_id, "is thinking");
+		action_info(data, philos->philo_id, "is thinking.");
 	}
 	return (NULL);
 }
