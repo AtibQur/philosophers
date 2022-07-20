@@ -6,12 +6,18 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 13:58:32 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/07/20 12:46:00 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/07/20 14:33:51 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHILOSOPHERS_H
 # define PHILOSOPHERS_H
+
+# define RED "\033[0;31m"
+# define GREEN "\033[0;32m"
+# define BLUE "\033[0;34m"
+# define CYAN "\033[0;36m"
+# define PURPLE "\033[0;35m"
 
 # include <stdio.h>
 # include <unistd.h>
@@ -54,5 +60,7 @@ void	*start_game(void *arg);
 int		check_status(t_data *data);
 void	timestamp_usleep(long time);
 long	timestamp(void);
+char	*action_color(int philo_id);
+void	action_info(t_data *data, int philo_id, char *string);
 
 #endif

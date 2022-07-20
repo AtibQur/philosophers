@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 13:58:23 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/07/20 13:37:55 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/07/20 13:51:24 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,5 @@ int	main(int argc, char **argv)
 		write_instructions(2);
 		return (1);
 	}
-	// system("leaks philo");
 	return (0);
 }

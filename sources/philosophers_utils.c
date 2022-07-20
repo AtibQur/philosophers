@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 12:48:26 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/07/20 12:30:53 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/07/20 14:33:37 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,24 @@ long	timestamp(void)
 	gettimeofday(&tv, NULL);
 	milliseconds = (tv.tv_sec) * 1000 + (tv.tv_usec) / 1000;
 	return (milliseconds);
+}
+
+char	*action_color(int philo_id)
+{
+	if (philo_id % 3 == 1)
+		return (GREEN);
+	if (philo_id % 3 == 2)
+		return (BLUE);
+	if (philo_id % 3 == 3)
+		return (CYAN);
+	else
+		return (PURPLE);
+}
+
+void	action_info(t_data *data, int philo_id, char *string)
+{
+	pthread_mutex_lock(&data->state);
+	printf("%s%ld\t", action_color(philo_id), timestamp() - data->start_time);
+	printf("Philosopher [%d] %s\n", philo_id + 1, string);
+	pthread_mutex_unlock(&data->state);
 }
