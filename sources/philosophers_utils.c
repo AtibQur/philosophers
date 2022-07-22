@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 12:48:26 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/07/20 14:33:37 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/07/22 14:35:56 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,16 @@ int	write_instructions(int error_message)
 	return (1);
 }
 
-int	check_status(t_data *data)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	int	ret;
+	size_t	i;
 
-	pthread_mutex_lock(&data->status);
-	if (data->finished == true)
-		ret = 1;
-	else
-		ret = 0;
-	pthread_mutex_unlock(&data->status);
-	return (ret);
+	i = 0;
+	if (n == 0)
+		return (0);
+	while (i < (n - 1) && s1[i] != '\0' && s2[i] != '\0' && s1[i] == s2[i])
+		i++;
+	return ((unsigned char) s1[i] - (unsigned char) s2[i]);
 }
 
 void	timestamp_usleep(long time)
@@ -75,7 +74,16 @@ char	*action_color(int philo_id)
 void	action_info(t_data *data, int philo_id, char *string)
 {
 	pthread_mutex_lock(&data->state);
-	printf("%s%ld\t", action_color(philo_id), timestamp() - data->start_time);
-	printf("Philosopher [%d] %s\n", philo_id + 1, string);
+	if (ft_strncmp(string, "died", 4) == 0)
+	{
+		printf("%s%ld\n", RED, timestamp() - data->start_time);
+		printf("Philosopher [%d] %s\n", philo_id + 1, string);
+	}
+	else
+	{
+		printf("%s%ld\t", action_color(philo_id), \
+		timestamp() - data->start_time);
+		printf("Philosopher [%d] %s\n", philo_id + 1, string);
+	}
 	pthread_mutex_unlock(&data->state);
 }

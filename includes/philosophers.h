@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 13:58:32 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/07/20 14:33:51 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/07/22 13:41:24 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,7 @@ void	timestamp_usleep(long time);
 long	timestamp(void);
 char	*action_color(int philo_id);
 void	action_info(t_data *data, int philo_id, char *string);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
+void	check_philosophers(t_data *data);
 
 #endif

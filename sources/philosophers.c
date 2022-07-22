@@ -6,11 +6,25 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 14:05:28 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/07/20 14:37:13 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/07/22 13:38:44 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philosophers.h"
+
+int	thread_join(t_data *data, t_philos *philos)
+{
+	int	i;
+
+	i = 0;
+	while (i < data->number_of_philosophers)
+	{
+		if (pthread_join(philos[i].tid, NULL) != 0)
+			return (0);
+		i++;
+	}
+	return (0);
+}
 
 void	eating(t_philos *philos)
 {
@@ -59,14 +73,7 @@ int	philosophers(t_data *data)
 		pthread_create(&philos[i].tid, NULL, start_game, &philos[i]);
 		i++;
 	}
-	i = 0;
-	while (i < data->number_of_philosophers)
-	{
-		if (pthread_join(philos[i].tid, NULL) != 0)
-			return (0);
-		i++;
-	}
-	//check if everyone ate and if no one died.
-	// free everytyhing
+	check_philosophers(data);
+	thread_join(data, philos);
 	return (1);
 }
