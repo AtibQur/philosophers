@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 14:28:46 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/07/20 12:46:48 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/07/27 09:51:16 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,11 +81,3 @@ int	init_program(t_data *data, char **argv)
 		return (0);
 	return (1);
 }
-
-/* 
-arg[1] number_of_philosophers
-arg[2] time_to_die
-arg[3] time_to_eat
-arg[4] time_to_sleep
-arg[5] [number_of_times_each_philosopher_must_eat]  --> optional
-*/

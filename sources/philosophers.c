@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 14:05:28 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/07/22 13:38:44 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/07/27 15:03:18 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,13 @@ void	eating(t_philos *philos)
 
 	data = philos->data;
 	pthread_mutex_lock(&philos->data->forks[philos->left_fork]);
-	action_info(data, philos->philo_id, "grabbed a fork.");
+	action_info(data, philos->philo_id, "grabbed a fork");
 	pthread_mutex_lock(&data->forks[philos->right_fork]);
-	action_info(data, philos->philo_id, "grabbed a fork.");
-	action_info(data, philos->philo_id, "is eating.");
+	action_info(data, philos->philo_id, "grabbed a fork");
+	pthread_mutex_lock(&data->meal_time);
+	philos->last_meal_time = timestamp();
+	pthread_mutex_unlock(&data->meal_time);
+	action_info(data, philos->philo_id, "is eating");
 	timestamp_usleep(data->time_to_eat);
 	philos->numbers_of_time_eaten--;
 	pthread_mutex_unlock(&data->forks[philos->left_fork]);
@@ -50,13 +53,13 @@ void	*start_game(void *arg)
 	philos = arg;
 	data = philos->data;
 	if (philos->philo_id % 2)
-		timestamp_usleep(data->number_of_times_to_eat);
+		timestamp_usleep(data->time_to_eat);
 	while (check_status(data) != 1 && philos->numbers_of_time_eaten != 0)
 	{
 		eating(philos);
-		action_info(data, philos->philo_id, "is sleeping.");
+		action_info(data, philos->philo_id, "is sleeping");
 		timestamp_usleep(data->time_to_sleep);
-		action_info(data, philos->philo_id, "is thinking.");
+		action_info(data, philos->philo_id, "is thinking");
 	}
 	return (NULL);
 }
@@ -70,6 +73,7 @@ int	philosophers(t_data *data)
 	philos = data->philos;
 	while (i < data->number_of_philosophers)
 	{
+		philos[i].last_meal_time = timestamp();
 		pthread_create(&philos[i].tid, NULL, start_game, &philos[i]);
 		i++;
 	}

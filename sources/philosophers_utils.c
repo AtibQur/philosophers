@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 12:48:26 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/07/22 14:35:56 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/07/27 13:02:37 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,21 +69,4 @@ char	*action_color(int philo_id)
 		return (CYAN);
 	else
 		return (PURPLE);
-}
-
-void	action_info(t_data *data, int philo_id, char *string)
-{
-	pthread_mutex_lock(&data->state);
-	if (ft_strncmp(string, "died", 4) == 0)
-	{
-		printf("%s%ld\n", RED, timestamp() - data->start_time);
-		printf("Philosopher [%d] %s\n", philo_id + 1, string);
-	}
-	else
-	{
-		printf("%s%ld\t", action_color(philo_id), \
-		timestamp() - data->start_time);
-		printf("Philosopher [%d] %s\n", philo_id + 1, string);
-	}
-	pthread_mutex_unlock(&data->state);
 }

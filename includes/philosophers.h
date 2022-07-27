@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 13:58:32 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/07/22 13:41:24 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/07/27 13:04:10 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct s_philos {
 	int				numbers_of_time_eaten;
 	int				left_fork;
 	int				right_fork;
+	long			last_meal_time;
 	struct s_data	*data;
 }	t_philos;
 
@@ -46,6 +47,7 @@ typedef struct s_data {
 	pthread_mutex_t		*forks;
 	pthread_mutex_t		state;
 	pthread_mutex_t		status;
+	pthread_mutex_t		meal_time;
 	t_philos			*philos;
 }	t_data;
 
@@ -64,5 +66,6 @@ char	*action_color(int philo_id);
 void	action_info(t_data *data, int philo_id, char *string);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 void	check_philosophers(t_data *data);
+long	check_meal_times(t_philos *philos);
 
 #endif
