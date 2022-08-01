@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 14:28:46 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/07/27 09:51:16 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/08/01 14:33:49 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,10 @@ int	init_philos(t_data *data)
 		data->philos[i].philo_id = i;
 		data->philos[i].numbers_of_time_eaten = data->number_of_times_to_eat;
 		data->philos[i].left_fork = i;
-		data->philos[i].right_fork = i + 1;
+		if (i + 1 == data->number_of_philosophers)
+			data->philos[i].right_fork = 0;
+		else
+			data->philos[i].right_fork = i + 1;
 		data->philos[i].data = data;
 		i++;
 	}

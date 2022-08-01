@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 13:58:32 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/07/27 13:04:10 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/08/01 12:24:49 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ typedef struct s_data {
 	int					time_to_eat;
 	int					time_to_sleep;
 	int					number_of_times_to_eat;
-	bool				finished;
 	long				start_time;
+	bool				finished;
 	pthread_mutex_t		*forks;
 	pthread_mutex_t		state;
 	pthread_mutex_t		status;
@@ -67,5 +67,6 @@ void	action_info(t_data *data, int philo_id, char *string);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 void	check_philosophers(t_data *data);
 long	check_meal_times(t_philos *philos);
+void	change_status(t_data *data);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:03:17 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/07/27 15:01:26 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/08/01 12:32:23 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	action_info(t_data *data, int philo_id, char *string)
 {
 	pthread_mutex_lock(&data->state);
-	if (ft_strncmp(string, "died", 4) == 0)
+	if (!ft_strncmp(string, "died", 4))
 	{
 		printf("%s%ld\t", RED, timestamp() - data->start_time);
 		printf("Philosopher [%d] %s.\n", philo_id + 1, string);

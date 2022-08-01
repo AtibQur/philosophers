@@ -6,11 +6,24 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 13:28:23 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/07/27 15:04:15 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/08/01 12:14:00 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philosophers.h"
+
+int	check_status(t_data *data)
+{
+	int	ret;
+
+	pthread_mutex_lock(&data->status);
+	if (data->finished == true)
+		ret = 1;
+	else
+		ret = 0;
+	pthread_mutex_unlock(&data->status);
+	return (ret);
+}
 
 void	change_status(t_data *data)
 {
@@ -42,7 +55,7 @@ void	monitoring(t_data *data)
 		{
 			change_status(data);
 			if (data->philos[i].numbers_of_time_eaten != 0)
-				action_info(data, data->philos->philo_id, "died");
+				action_info(data, i, "died");
 			return ;
 		}
 		i++;
@@ -53,17 +66,4 @@ void	check_philosophers(t_data *data)
 {
 	while (check_status(data) == 0)
 		monitoring(data);
-}
-
-int	check_status(t_data *data)
-{
-	int	ret;
-
-	pthread_mutex_lock(&data->status);
-	if (data->finished == true)
-		ret = 1;
-	else
-		ret = 0;
-	pthread_mutex_unlock(&data->status);
-	return (ret);
 }

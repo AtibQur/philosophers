@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 14:05:28 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/07/27 15:03:18 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/08/01 14:27:55 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	eating(t_philos *philos)
 	data = philos->data;
 	pthread_mutex_lock(&philos->data->forks[philos->left_fork]);
 	action_info(data, philos->philo_id, "grabbed a fork");
-	pthread_mutex_lock(&data->forks[philos->right_fork]);
+	pthread_mutex_lock(&philos->data->forks[philos->right_fork]);
 	action_info(data, philos->philo_id, "grabbed a fork");
 	pthread_mutex_lock(&data->meal_time);
 	philos->last_meal_time = timestamp();
@@ -52,9 +52,15 @@ void	*start_game(void *arg)
 
 	philos = arg;
 	data = philos->data;
+	if (data->number_of_philosophers == 1)
+	{
+		pthread_mutex_lock(&philos->data->forks[philos->left_fork]);
+		action_info(data, philos->philo_id, "grabbed a fork");
+		return (NULL);
+	}
 	if (philos->philo_id % 2)
 		timestamp_usleep(data->time_to_eat);
-	while (check_status(data) != 1 && philos->numbers_of_time_eaten != 0)
+	while ((check_status(data) != 1 && philos->numbers_of_time_eaten != 0))
 	{
 		eating(philos);
 		action_info(data, philos->philo_id, "is sleeping");
@@ -77,7 +83,15 @@ int	philosophers(t_data *data)
 		pthread_create(&philos[i].tid, NULL, start_game, &philos[i]);
 		i++;
 	}
-	check_philosophers(data);
-	thread_join(data, philos);
+	if (check_status(data) != 1)
+	{
+		check_philosophers(data);
+		return (1);
+	}
+	if (check_status(data) != 1)
+	{
+		thread_join(data, philos);
+		return (1);
+	}
 	return (1);
 }
