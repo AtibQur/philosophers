@@ -1,6 +1,0 @@
-[0;35m0	Philosopher [1] grabbed a fork.
-[0;35m0	Philosopher [1] grabbed a fork.
-[0;35m0	Philosopher [1] is eating..
-[0;31m52	Philosopher [1] died.
-[0;35m100	Philosopher [1] is sleeping.
-[0;35m200	Philosopher [1] is thinking.

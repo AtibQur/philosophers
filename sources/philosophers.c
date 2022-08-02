@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 14:05:28 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/08/01 14:27:55 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/08/02 14:21:05 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	*start_game(void *arg)
 	}
 	if (philos->philo_id % 2)
 		timestamp_usleep(data->time_to_eat);
-	while ((check_status(data) != 1 && philos->numbers_of_time_eaten != 0))
+	while (check_status(data) != 1 && philos->numbers_of_time_eaten != 0)
 	{
 		eating(philos);
 		action_info(data, philos->philo_id, "is sleeping");
@@ -83,15 +83,13 @@ int	philosophers(t_data *data)
 		pthread_create(&philos[i].tid, NULL, start_game, &philos[i]);
 		i++;
 	}
-	if (check_status(data) != 1)
-	{
+	// if (check_status(data) != 1)
+	// {
 		check_philosophers(data);
-		return (1);
-	}
-	if (check_status(data) != 1)
-	{
+	// }
+	// if (check_status(data) != 1)
+	// {
 		thread_join(data, philos);
-		return (1);
-	}
+	// }
 	return (1);
 }

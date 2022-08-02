@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 14:28:46 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/08/01 14:33:49 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/08/02 14:21:54 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ int	init_mutexes(t_data *data)
 	if (pthread_mutex_init(&data->state, NULL) != 0)
 		return (0);
 	if (pthread_mutex_init(&data->status, NULL) != 0)
+		return (0);
+	if (pthread_mutex_init(&data->meal_time, NULL) != 0)
 		return (0);
 	return (1);
 }
@@ -64,6 +66,7 @@ int	init_program(t_data *data, char **argv)
 	if (!check_input_errors(argv))
 		return (0);
 	data->finished = false;
+	data->philo_died = false;
 	data->start_time = timestamp();
 	data->number_of_philosophers = ft_atoi(argv[1]);
 	data->time_to_die = ft_atoi(argv[2]);

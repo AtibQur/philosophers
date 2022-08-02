@@ -6,13 +6,13 @@
 #    By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/22 10:34:59 by hqureshi          #+#    #+#              #
-#    Updated: 2022/07/27 14:27:38 by hqureshi         ###   ########.fr        #
+#    Updated: 2022/08/02 14:33:36 by hqureshi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= philo
 
-CC			= gcc 
+CC			= gcc
 CFLAGS		= -Wall -Werror -Wextra
 
 all:		$(NAME)
