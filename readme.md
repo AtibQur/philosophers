@@ -1,10 +1,10 @@
-# <h1 align="center"><a href="https://github.com/AtibQur/push_swap/blob/main/push_swap.pdf" target="_blank">Philosophers</a>🍝🍴</h1>
+# <h1 align="center"><a href="https://github.com/AtibQur/philosophers/blob/main/exercise_pdf/en.subject.pdf" target="_blank">Philosophers</a>🍝🍴</h1>
 <p><img align="right" src="./img/score.png" alt="Score" width="125" height="125"></p>
 
-<h2> Description Push_swap</h2>
+<h2> Description Philosophers</h2>
 This projects involves making use of threads and mutexes. 
 By precisely timing a group of philosphers on when to pick a fork and spaghetti without dying from hunger.
-
+<br><br>
 To succeed this assignement:
 <li>One or more philosophers sit at a round table.
 There is a large bowl of spaghetti in the middle of the table.</li>
@@ -26,21 +26,34 @@ a philosopher dies of starvation.</li>
 *To build the programm there is only a few steps: First of all, you can download the repository through the following steps in any shell of your preference:*
 <br>
 <pre>
-git clone git@github.com:AtibQur/push_swap.git
+git@github.com:AtibQur/philosophers.git
 cd philosophers
 make
 </pre>
-These commands will compile everything and a executable <em>"push_swap"</em> should be created.
-<br><br>
+These commands will compile everything and a executable <em>"philo"</em> should be created.
+<br>
 <h2>Usage 🛠️</h2>
 <p>To compile the program, run the following command:</p>
 <pre>
 cd philosophers && make
 </pre>
-After creating the executable, the function is ready for use. This function only takes integers and will return errors if a non numeric character is used.
-<br></br>
-
-3rd party helpers
+After creating the executable, the function is ready for use. This function only takes integers and will return errors if a non numeric character is used. <br>
+The program takes 4 or 5 arguments: <br>
+1: ./philo <br>
+2: amount of philosopher<br>
+3: time to eat<br>
+4: time to sleep<br>
+5: amount of meals to eat (optional)<br>
+<br>
+<pre>
+./philo 3 410 200 200 5 --> will fail
+</pre>
+<p><img align="center" src="exercise_pdf/img/failed_img.png" alt="Score" height="200"></p>
+<pre>
+./philo 4 410 200 200 5 --> will run till amount of times to eat is true
+</pre>
+<p><img align="center" src="exercise_pdf/img/succes.gif" alt="Score" height="250"></p>
+<h2>3rd party helpers</h2>
 educative  --> https://www.educative.io/answers/how-to-create-a-simple-thread-in-c
 MichelleJiam tester --> https://github.com/MichelleJiam/LazyPhilosophersTester/tree/9819a70a3f6bab412d6615d26d625d648fa3695a
 Dining philosophers problem wikipedia --> https://en.wikipedia.org/wiki/Dining_philosophers_problem
