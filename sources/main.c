@@ -29,5 +29,7 @@ int	main(int argc, char **argv)
 		write_instructions(2);
 		return (1);
 	}
+	free(data.forks);
+	free(data.philos);
 	return (0);
 }
