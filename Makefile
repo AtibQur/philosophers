@@ -6,25 +6,26 @@
 #    By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/22 10:34:59 by hqureshi          #+#    #+#              #
-#    Updated: 2022/06/22 14:51:49 by hqureshi         ###   ########.fr        #
+#    Updated: 2022/08/02 14:33:36 by hqureshi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= philo
 
 CC			= gcc
-CFLAGS		= -g -Wall -Werror -Wextra 
+CFLAGS		= -Wall -Werror -Wextra 
 
 all:		$(NAME)
 
 SRCS		= sources/main.c \
-			sources/lib_utils.c \
-			sources/init_philos.c \
-			sources/philosophers.c \
-			sources/check_errors.c \
 			sources/philosophers_utils.c \
+			sources/init_program.c \
+			sources/check_errors.c \
+			sources/ft_atoi.c \
+			sources/philosophers.c \
+			sources/check_philosophers.c \
+			sources/action_info.c \
 			
-
 INCS		= ./includes/philosophers.h
 
 OBJS		= $(SRCS:.c=.o)
