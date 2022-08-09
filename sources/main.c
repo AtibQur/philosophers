@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 13:58:23 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/07/27 13:03:16 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/08/09 12:40:54 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,5 @@ int	main(int argc, char **argv)
 		write_instructions(2);
 		return (1);
 	}
-	free(data.forks);
-	free(data.philos);
 	return (0);
 }
