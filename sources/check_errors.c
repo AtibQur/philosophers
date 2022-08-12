@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 12:31:51 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/06/28 12:03:35 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/08/12 13:30:35 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ static int	check_input_numbers(char **argv)
 {
 	if (ft_atoi(argv[1]) < 1 || \
 		ft_atoi(argv[1]) > 200 || \
-		ft_atoi(argv[2]) < 0 || \
-		ft_atoi(argv[3]) < 0 || \
-		ft_atoi(argv[4]) < 0)
+		ft_atoi(argv[2]) <= 0 || \
+		ft_atoi(argv[3]) <= 0 || \
+		ft_atoi(argv[4]) <= 0)
 		return (0);
 	return (1);
 }
