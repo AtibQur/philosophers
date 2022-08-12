@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 13:28:23 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/08/12 13:28:48 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/08/12 13:59:09 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	monitoring(t_data *data)
 	while (i < data->number_of_philosophers)
 	{
 		last_meal = timestamp() - check_meal_times(&data->philos[i]);
-		if (data->time_to_die <= last_meal)
+		if (last_meal > data->time_to_die)
 		{
 			change_status(data);
 			if (data->philos[i].numbers_of_time_eaten != 0)
@@ -65,7 +65,14 @@ void	monitoring(t_data *data)
 void	check_philosophers(t_data *data)
 {
 	while (check_status(data) == 0)
+	{
+		// test .philo 2 310 200 100 
+		printf("check\n");
+		// usleep(10000);
 		monitoring(data);
+	}
 	free(data->forks);
 	free(data->philos);
+	printf("over\n");
 }
+
