@@ -6,12 +6,13 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 13:58:23 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/08/12 14:00:02 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/08/15 11:53:56 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philosophers.h"
 
+// Check for leaks in the whole program with atexit();
 // void	check_leaks()
 // {
 // 	system ("leaks philo");
@@ -21,7 +22,7 @@ int	main(int argc, char **argv)
 {
 	t_data	data;
 
-	//atexit(check_leaks);
+	// atexit(check_leaks);
 	if (argc == 5 || argc == 6)
 	{
 		if (!init_program(&data, argv))

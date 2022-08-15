@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 13:28:23 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/08/12 13:59:09 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/08/15 11:40:41 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,14 +65,5 @@ void	monitoring(t_data *data)
 void	check_philosophers(t_data *data)
 {
 	while (check_status(data) == 0)
-	{
-		// test .philo 2 310 200 100 
-		printf("check\n");
-		// usleep(10000);
 		monitoring(data);
-	}
-	free(data->forks);
-	free(data->philos);
-	printf("over\n");
 }
-

@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 14:05:28 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/08/02 14:42:52 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/08/15 11:51:23 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	*start_game(void *arg)
 		return (NULL);
 	}
 	if (philos->philo_id % 2)
-		timestamp_usleep(data->time_to_eat);
+		timestamp_usleep(data->time_to_eat - 1);
 	while (check_status(data) != 1 && philos->numbers_of_time_eaten != 0)
 	{
 		eating(philos);
@@ -85,5 +85,7 @@ int	philosophers(t_data *data)
 	}
 	check_philosophers(data);
 	thread_join(data, philos);
+	free(data->forks);
+	free(data->philos);
 	return (1);
 }
