@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 13:58:23 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/08/15 11:53:56 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/08/17 10:07:20 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int	main(int argc, char **argv)
 {
 	t_data	data;
 
-	// atexit(check_leaks);
 	if (argc == 5 || argc == 6)
 	{
 		if (!init_program(&data, argv))
@@ -36,5 +35,6 @@ int	main(int argc, char **argv)
 		write_instructions(2);
 		return (1);
 	}
+	// atexit(check_leaks);
 	return (0);
 }

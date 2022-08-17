@@ -1,5 +1,5 @@
 # <h1 align="center"><a href="https://github.com/AtibQur/philosophers/blob/main/exercise_pdf/en.subject.pdf" target="_blank">Philosophers</a>🍝🍴</h1>
-<p><img align="right" src="./img/score.png" alt="Score" width="125" height="125"></p>
+<p><img align="right" src="./exercise_pdf/img/score_100.png" alt="Score" width="125" height="125"></p>
 
 <h2> Description Philosophers</h2>
 This projects involves making use of threads and mutexes. 
@@ -54,6 +54,24 @@ The program takes 4 or 5 arguments: <br>
 </pre>
 <p><img align="center" src="exercise_pdf/img/succes.gif" alt="Score" height="250"></p>
 <h2>3rd party helpers</h2>
-educative  --> https://www.educative.io/answers/how-to-create-a-simple-thread-in-c
-MichelleJiam tester --> https://github.com/MichelleJiam/LazyPhilosophersTester/tree/9819a70a3f6bab412d6615d26d625d648fa3695a
-Dining philosophers problem wikipedia --> https://en.wikipedia.org/wiki/Dining_philosophers_problem
+educative<br>
+https://www.educative.io/answers/how-to-create-a-simple-thread-in-c
+<br>
+MichelleJiam tester<br>
+https://github.com/MichelleJiam/LazyPhilosophersTester/tree/9819a70a3f6bab412d6615d26d625d648fa3695a
+<br>
+Dining philosophers problem wikipedia<br>
+https://en.wikipedia.org/wiki/Dining_philosophers_problem
+<br>
+Jacob Sorber<br>
+How to create and join threads in C (pthreads):
+<br>
+https://www.youtube.com/watch?v=uA8X5zNOGw8&list=PL9IEJIKnBJjFZxuqyJ9JqVYmuFZHr7CFM&index=1
+<br>
+How to pass arguments to and get results from threads. (pthread_create, pthread_join):
+<br>
+https://www.youtube.com/watch?v=It0OFCbbTJE&list=PL9IEJIKnBJjFZxuqyJ9JqVYmuFZHr7CFM&index=2
+<br>
+How to pass arguments to and get results from threads. (pthread_create, pthread_join):
+<br>
+https://www.youtube.com/watch?v=9axu8CUvOKY&list=PL9IEJIKnBJjFZxuqyJ9JqVYmuFZHr7CFM&index=3
