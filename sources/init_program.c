@@ -6,7 +6,7 @@
 /*   By: hqureshi <hqureshi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 14:28:46 by hqureshi          #+#    #+#             */
-/*   Updated: 2022/08/15 11:43:00 by hqureshi         ###   ########.fr       */
+/*   Updated: 2022/08/17 10:17:51 by hqureshi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,10 @@ int	init_mutexes(t_data *data)
 	data->forks = (pthread_mutex_t *)malloc(sizeof(pthread_mutex_t) \
 	* data->number_of_philosophers);
 	if (!data->forks)
+	{
+		free(data->philos);
 		return (0);
+	}
 	while (i < data->number_of_philosophers)
 	{
 		if (pthread_mutex_init(&data->forks[i], NULL) != 0)
